@@ -14,7 +14,8 @@ while True:
         soup = bs4.BeautifulSoup(res.text, 'html.parser')
 
         service_td = soup.find('td', class_='service', string='10')
-        mins_span = service_td.find_next('td', class_='time').find('span', class_='mins')
+        dest_td = service_td.find_next('td', class_='dest', string='Bonaly')
+        mins_span = dest_td.find_next('td', class_='time').find('span', class_='mins')
         mins_text = mins_span.get_text()
         print(f'{mins_text} min')
         if mins_text != 'DUE':
