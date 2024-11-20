@@ -1,0 +1,13 @@
+[Unit]
+Description=Live Tracker Service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /home/nedo/live-tracker.py
+WorkingDirectory=/home/nedo
+Restart=always
+User=nedo
+Environment="PYTHONUNBUFFERED=1"
+
+[Install]
+WantedBy=multi-user.target
